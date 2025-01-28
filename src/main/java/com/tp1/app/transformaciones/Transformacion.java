@@ -1,13 +1,13 @@
 package com.tp1.app.transformaciones;
 
-import com.tp1.app.Peleador;
+public class Transformacion {
+    int multiplicador;
 
-public abstract class Transformacion {
-    Peleador peleador;
-
-    public Transformacion(Peleador peleador) {
-        this.peleador = peleador;
+    public Transformacion() {
+        this.multiplicador = 1;
     }
 
-    public abstract int cambiarKiBase();
+    public int cambiarKiBase(int kiBase) {
+        return kiBase * this.multiplicador;
+    }
 }

@@ -8,7 +8,7 @@ public abstract class Rastreador {
     public abstract Modelo crearModelo();
 
     public int nivelDePeleaDe(Peleador peleador) {
-        Modelo modelo = crearModelo();
+        this.modelo = crearModelo();
         return modelo.nivelDePeleaDe(peleador);
     }
 }

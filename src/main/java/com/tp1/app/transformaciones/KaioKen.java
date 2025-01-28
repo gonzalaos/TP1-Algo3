@@ -1,14 +1,12 @@
 package com.tp1.app.transformaciones;
 
-import com.tp1.app.Peleador;
-
 public class KaioKen extends Transformacion {
-    public KaioKen(Peleador peleador) {
-        super(peleador);
+    public KaioKen() {
+        this.multiplicador = 2;
     }
 
-    @Override
-    public int cambiarKiBase() {
-        return this.peleador.duplicarKiBase();
-    }
+    // @Override
+    // public int cambiarKiBase(int kiBase) {
+    //     return kiBase * this.multiplicador;
+    // }
 }

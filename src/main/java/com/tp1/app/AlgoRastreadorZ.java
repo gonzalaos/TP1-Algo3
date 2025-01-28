@@ -3,23 +3,30 @@ package com.tp1.app;
 import java.util.HashMap;
 
 import com.tp1.app.rastreador.*;
+import com.tp1.app.criterios.*;
 
 public class AlgoRastreadorZ {
-    private String criterio;
+    private Criterio criterio;
 
+    private HashMap<String, Criterio> criterios = new HashMap<>();
     private HashMap<Peleador, Rastreador> peleadoresYRastreadores = new HashMap<>();
-    private HashMap<String, Rastreador> modelosDeRastreadores = new HashMap<>();
     
     AlgoRastreadorZ(String criterio) {
-        this.criterio = criterio;
+        this.criterios.put("Fuerte", new Fuerte());
+        this.criterios.put("Debil", new Debil());
+        if(criterios.containsKey(criterio)) {
+            this.criterio = criterios.get(criterio);
+        }
     }
 
     public void registrarRastreoConModeloDelPeleadorConNombreKiBaseYTransformacion(String modelo, String nombre, int kiBase, String transformacion) {
-        modelosDeRastreadores.put("Nuevo", new RastreadorNuevo());
-        modelosDeRastreadores.put("Viejo", new RastreadorViejo());
-        if(modelosDeRastreadores.containsKey(modelo)) {
-            peleadoresYRastreadores.put(new Peleador(nombre, kiBase, transformacion), modelosDeRastreadores.get(modelo));
+        Rastreador rastreador = null;
+        if (modelo.equals("Nuevo")) {
+            rastreador = new RastreadorNuevo();
+        } else if (modelo.equals("Viejo")) {
+            rastreador = new RastreadorViejo();
         }        
+        peleadoresYRastreadores.put(new Peleador(nombre, kiBase, transformacion), rastreador);
     }
 
     public int nivelDePeleaDe(String nombre) {
@@ -29,11 +36,12 @@ public class AlgoRastreadorZ {
             .orElse(null);
         if (peleadorEncontrado != null) {
             return peleadoresYRastreadores.get(peleadorEncontrado).nivelDePeleaDe(peleadorEncontrado);
+        } else {
+            return 0;
         }
-        return 0;
     }
 
     public String obtenerPeleadorSegunCriterio() {
-        return "";
+        return criterio.obtenerPeleadorSegunCriterio(peleadoresYRastreadores);
     }
 }

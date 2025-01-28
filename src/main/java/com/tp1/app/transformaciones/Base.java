@@ -1,14 +1,12 @@
 package com.tp1.app.transformaciones;
 
-import com.tp1.app.Peleador;
-
 public class Base extends Transformacion {
-    public Base(Peleador peleador) {
-        super(peleador);
+    public Base() {
+        super();
     }
 
-    @Override
-    public int cambiarKiBase() {
-        return this.peleador.mantenerKiBase();
-    }
+    // @Override
+    // public int cambiarKiBase(int kiBase) {
+    //     return kiBase * this.multiplicador;
+    // }
 }

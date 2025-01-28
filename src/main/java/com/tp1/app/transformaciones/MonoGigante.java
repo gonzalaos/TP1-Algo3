@@ -1,14 +1,12 @@
 package com.tp1.app.transformaciones;
 
-import com.tp1.app.Peleador;
-
 public class MonoGigante extends Transformacion {
-    public MonoGigante(Peleador peleador) {
-        super(peleador);
+    public MonoGigante() {
+        this.multiplicador = 10;
     }
 
-    @Override
-    public int cambiarKiBase() {
-        return this.peleador.aumentarConsiderablementeKiBase();
-    }
+    // @Override
+    // public int cambiarKiBase(int kiBase) {
+    //     return kiBase * this.multiplicador;
+    // }
 }
