@@ -14,8 +14,7 @@ public class RastreadorTest {
         Rastreador rastreador = new RastreadorViejo();
 
         // Act
-        int kiObtenido = rastreador.nivelDePeleaDe(new Peleador("Goku", 5000, "Kaio-Ken"));
-
+        int kiObtenido = rastreador.nivelDePeleaDe(new Peleador(10000));
         // Assert
         assertEquals(kiEsperado, kiObtenido);
     }
@@ -27,7 +26,7 @@ public class RastreadorTest {
         Rastreador rastreador = new RastreadorNuevo();
 
         // Act
-        int kiObtenido = rastreador.nivelDePeleaDe(new Peleador("Goku", 5000, "Kaio-Ken"));
+        int kiObtenido = rastreador.nivelDePeleaDe(new Peleador(10000));
 
         // Assert
         assertEquals(kiEsperado, kiObtenido);
