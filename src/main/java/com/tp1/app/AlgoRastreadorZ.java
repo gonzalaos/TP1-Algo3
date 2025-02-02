@@ -1,6 +1,6 @@
 package com.tp1.app;
 
-import java.util.HashMap;
+import java.util.*;
 
 import com.tp1.app.rastreador.*;
 import com.tp1.app.criterios.*;
@@ -9,7 +9,7 @@ public class AlgoRastreadorZ {
     private Criterio criterio;
 
     private HashMap<String, Criterio> criterios = new HashMap<>();
-    private HashMap<Peleador, Rastreador> peleadoresYRastreadores = new HashMap<>();
+    private HashMap<Peleador, Rastreador> peleadoresYRastreadores = new LinkedHashMap<>();
     
     AlgoRastreadorZ(String criterio) {
         this.criterios.put("Fuerte", new Fuerte());
